@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            position: absolute;
+            top: 50px;
+        }
+        #box2{
+            top:160px;   
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById('btn');
+            var box1=document.getElementById('box1');
+            var box2=document.getElementById('box2');
+            var t1
+            function dsq(hs,fx,cd ){
+                clearInterval(hs.t1);
+                hs.t1=setInterval(function(){
+                    var l=parseInt(getComputedStyle(hs)[fx])
+                    l+=7
+                    if(l>=cd){
+                        clearInterval(t1);
+                        l=cd;                       
+                    }
+                    hs.style[fx]=l+'px';
+                },16);
+            }
+            btn.onclick=function(){
+                dsq(box1,'left',500);
+                dsq(box2,'left',500);
+            }
+        };
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="开始">
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>

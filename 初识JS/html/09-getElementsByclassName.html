@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var yellows=document.getElementsByClassName('yellow');
+            console.dir(yellows)
+            
+            var color=document.getElementById('color');
+            var yellows1=color.getElementsByClassName('yellow');
+            console.dir(yellows1)
+        }
+    </script>
+</head>
+<body>
+    <ul id="color"> 
+        <li>red</li>
+        <li>bule</li>
+        <li class="yellow">yellow</li>
+        <li>green</li>
+        <li>pink</li>
+    </ul>
+    <ul>
+        <li>red</li>
+        <li>bule</li>
+        <li class="yellow">yellow</li>
+        <li>green</li>
+        <li>pink</li>
+    </ul>
+</body>
+</html>

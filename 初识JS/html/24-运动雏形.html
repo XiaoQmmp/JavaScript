@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            position:absolute;
+            left: 0px;
+            top: 50px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box=document.getElementById('box');
+            var begin=document.getElementById('begin');
+            var stop=document.getElementById('stop');
+            var timer;
+            //给开始按钮添加点击事件
+            
+            begin.onclick=function(){
+                var l= parseInt (getComputedStyle(box).left);
+                var t=parseInt(getComputedStyle(box).top);
+                var w=parseInt(getComputedStyle(box).width);
+                var h=parseInt(getComputedStyle(box).height);
+
+                timer=setInterval(function(){
+                    l++;
+                    t++;
+                    w++;
+                    h++;
+                    box.style.left=l+'px';
+                    box.style.top=t+'px';
+                    box.style.width=w+'px';
+                    box.style.height=h+'px';
+                },16)
+
+            }
+            stop.onclick=function(){
+                clearInterval(timer);
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="" id="begin" value="开始"/>
+    <input type="button" id="stop" value="停止"/>
+    <div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //一个月有多少天。
+        var d=new Date();       //声明日期对象;4
+        d.setMonth( d.getMonth()); //月份设置成下个月;
+        console.log(d);
+        d.setDate(0);           //把日期设置为0，date对象会自动把日期设置为上个月最后一天。
+        console.log(d);
+        console.log( d.getDate());           //获取最后一天，也就代表这个月有多少天。
+        //一个月第一天是周几。
+        var d1=new Date();      //声明一个新的日期对象，用来获取星期。
+        d1.setDate(1);              //参数设置为1就会到这个月的第一天. 
+        console.log(d1.getDay());        //获取到这个月的第一天是星期几。
+
+
+    </script>
+</body>
+</html>

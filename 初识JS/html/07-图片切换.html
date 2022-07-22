@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var prev=document.getElementById('prev');
+            var next=document.getElementById('next');
+            var pic=document.getElementById('pic');
+            var n=0
+
+            var imgArr=['asasdfasdf','asdqwrqwerqwer','cvbsrgwgw','ssbsdfgsfg']
+            next.onclick=function(){
+                n++
+                if(n>imgArr.length-1){
+                    n=imgArr.length-1
+                }
+                pic.src='/课件/img2/'+imgArr[n]+'.jpg'             
+            };
+            prev.onclick=function(){
+                n--;
+                if(n<0){
+                    n=0
+                }
+                pic.src='/课件/img2/'+imgArr[n]+'.jpg'             
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="prev" value="上一张">
+    <input type="button" id="next" value="下一张">
+    <img src="/课件/img2/asasdfasdf.jpg" id="pic" alt="">
+</body>
+</html>

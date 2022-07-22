@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        	/*
+			 * nodeName
+			 * 	节点名称，任何一个节点都有这个属性
+			 * 
+			 * tagName
+			 * 	标签名称
+			 * 	只有元素节点才有这个属性
+			 */
+            
+        window.onload=function(){
+            var box=document.getElementById("box");
+            console.log(box.nodeName);
+            console.log(box.tagName);
+            console.log(document.nodeName);
+            console.log(document.tagName);
+        }
+    </script>
+    <div id="box"></div>
+</body>
+</html>

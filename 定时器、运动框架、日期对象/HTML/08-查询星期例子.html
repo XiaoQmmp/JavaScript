@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var year=document.getElementById('year');
+            var month=document.getElementById('month');
+            var day=document.getElementById('day');
+            var week=document.getElementById('week');
+            var d=new Date();
+            var oldDay=new Date();
+            //生成年
+            var yearStr=''
+            for(var i=2030;i>=1970;i--){
+                yearStr+='<option>'+i+'</option>';
+            }
+            year.innerHTML=yearStr;
+            year.value=d.getFullYear();
+            //生成月
+            var monthStr=''
+            for(var i=12;i>0;i--){
+                monthStr+='<option>'+i+'</option>';
+            }
+            month.innerHTML=monthStr;
+            month.value=d.getMonth()+1;
+            //生成日
+            createDay();
+            function createDay(){
+                //现在需要根据用户选择的年份与月份去设置日期，设置完日期后，那个月的天数就有了。
+                d.setFullYear(year.value);
+                d.setMonth(month.value);
+                d.setDate(0);
+                var totalDay=d.getDate();
+                var dayStr=''
+                for(var i=1;i<=totalDay;i++){
+                    dayStr+='<option>'+i+'</option>';
+                }
+                day.innerHTML=dayStr;
+                day.value=oldDay.getDate();
+                d.setDate(day.value);
+                week.innerHTML=formatWeek(d.getDay());
+                }
+            year.onchange=function(){
+                createDay();
+            };
+            month.onchange=function(){
+                createDay();
+            };
+            day.onchange=function(){
+                d.setFullYear(year.value);
+                d.setMonth(month.value-1);
+                d.setDate(this.value);
+                week.innerHTML=formatWeek(d.getDay());
+            };
+            function formatWeek(v){
+                return ['日','一','二','三','四','五','六','日'][v];
+            }
+            
+        };
+
+
+
+
+    </script>
+</head>
+<body>
+    <select name="" id="year"></select>年
+    <select name="" id="month"></select>月
+    <select name="" id="day"></select>日
+    星期<span id="week"></span>
+</body>
+</html>

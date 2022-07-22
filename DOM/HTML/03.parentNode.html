@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            parentNode
+            元素的父节点
+    
+            属性没有父节点
+        */
+        window.onload=function(){
+            var box=document.getElementById('box');
+            var p=box.querySelector('p');
+            console.log(p.parentNode);
+            var attr=p.attributes;
+            console.log(attr[0].parentNode);
+            var child=box.childNodes;
+            console.log(child[3].parentNode);
+        }
+    </script>
+    <div id="box">
+        <p style='width:100px;'></p>
+        <!-- 这里是注释 -->
+    </div>
+</body>
+</html>

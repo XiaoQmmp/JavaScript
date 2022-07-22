@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btns=document.querySelectorAll("input[type=button]");
+            var texts=document.querySelectorAll("input[type=text]");
+            function a(){
+                var b=0;
+                for(var i=0;i<arguments.length;i++){
+                    b+=arguments[i];
+                }
+                return b;
+            }
+           btns[0].onclick=function (){
+               texts[0].value=a(1,2,3);
+           }
+           btns[1].onclick=function (){
+               texts[1].value=a(2,2,3);
+           }
+           btns[2].onclick=function (){
+               texts[2].value=a(3,2,3);
+           }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="" value="按钮1">
+    <input type="text" value="">
+    <input type="button" id="" value="按钮2">
+    <input type="text" value="">
+    <input type="button" id="" value="按钮2">
+    <input type="text" value="">
+</body>
+</html>

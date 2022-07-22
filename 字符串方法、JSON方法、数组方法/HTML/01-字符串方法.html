@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //    charAt
+        //        通过索引值找字符
+                    var name='yexiaoqiang'
+                    var s1=name.charAt(1);
+                    var s2=name.charAt();
+                    console.log(s1);    //e
+                    console.log(s2);    //y,(索引值为空时，返回字符串第一个的值)
+        //    charcodeAt
+        //      通过索引找字符，找到后转为Unicode编码
+                    var s3=name.charCodeAt(1);
+                    var s4=name.charCodeAt();
+                    console.log(s3);    //101
+                    console.log(s4);    //121,(索引值为空时，返回字符串第一个的Unicoode编码)
+        //   indexOf
+        //      通过字符找下标（从左往右找这个字符首次出现的位置）          
+                    var s5=name.indexOf('i');
+                    var s6=name.indexOf('i',4);//找下标值为4以后的'i'的下标值。
+                    var s7=name.indexOf('z');
+                    console.log(s5);    //3        
+                    console.log(s6);    //7
+                    console.log(s7);    //-1,(找不到字符串时返回-1)
+            
+            
+            
+            
+        </script>
+</body>
+</html>

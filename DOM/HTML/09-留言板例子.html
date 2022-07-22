@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #f00;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var tex=document.getElementById('tex');
+            var btn=document.getElementById('btn');
+            var list=document.getElementById('list');
+            btn.onclick=function(){
+                var newText=tex.value;
+                var li=document.createElement('li')
+                li.innerHTML=newText;
+                list.insertBefore(li,list.children[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="tex" value="">
+    <input type="button" id="btn" value="提交">
+        <ul id="list">
+        </ul>
+</body>
+</html>

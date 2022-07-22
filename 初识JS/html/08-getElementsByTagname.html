@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var lis=document.getElementsByTagName('li');
+            console.dir(lis);
+            lis[6].style.color='blue';
+
+
+            var color=document.getElementById('color');
+            var lis1=color.getElementsByTagName('li');
+            console.dir(lis1);
+            lis1[2].style.color='yellow';
+        }
+    </script>
+</head>
+<body>
+    <ul id="color">
+        <li>red</li>
+        <li>bule</li>
+        <li>yellow</li>
+        <li>green</li>
+        <li>pink</li>
+    </ul>
+    <ul>
+        <li>red</li>
+        <li>bule</li>
+        <li>yellow</li>
+        <li>green</li>
+        <li>pink</li>
+    </ul>
+</body>
+</html>

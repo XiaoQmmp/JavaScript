@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            border: 1px solid #f00;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btns=document.querySelectorAll('input');
+            var divs=document.querySelectorAll('div');
+            var last=btns[0];
+            for(i=0;i<btns.length;i++){
+                btns[i].index=i;
+                btns[i].onclick=function(){
+                    last.style.background='none'
+                    divs[last.index].style.display='none'
+                    this.style.background='yellow'
+                   divs[this.index].style.display='block'
+                   last=this;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="" value="选项1" style="background:yellow"> 
+    <input type="button" id="" value="选项2">
+    <input type="button" id="" value="选项3">
+    <div style="display: block;">内容一 </div>
+    <div>内容二</div>
+    <div>内容三</div>
+</body>
+</html>

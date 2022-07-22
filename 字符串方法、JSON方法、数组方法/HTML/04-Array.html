@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            push
+            作用
+                给数组的末尾添加数据
+            语法
+                数组.push(element1,element2,...)
+            参数
+                要添加的数据，一个数据或者多个数据。
+            返回值
+                返回数组添加后的长度，原数组变成添加后的数组。
+        
+
+             unshift
+            作用
+                给数组的前面添加数据，其他同上.
+
+
+            pop
+                作用
+                    删除数组最后一位数据。
+                语法
+                    数组.pop();
+                参数
+                    无参数
+                返回值
+                    返回删除的那个数据,原数组变成删除后的数组
+
+            shift
+                作用
+                    删除数组第一位数据,其他同上。
+                    
+            forEach
+                作用
+                    遍历数组
+                语法
+                    数组.forEach(function(currentValue,index,array){
+                        
+                    });
+                参数
+                    forEach里的参数是一个函数
+                    函数里的参数：
+                        currentValue        当前数据中的某个数据 
+                        index               当前数据的索引值
+                        array               数组本身
+
+            sort
+                作用
+                    对数组进行排序
+                语法
+                    数组.sort(compareFunction) 
+                参数
+             * 		用来指定按某种顺序对数组进行排序
+             * 		如果没有参数的话，会按照每个字符对应的Unicode码值进行排序
+             * 
+             * 		函数里有两个参数
+             * 			a,b
+             * 			return a-b			按从小到大的顺序去排
+             * 			return b-a			按从大到小的顺序去排
+             * 
+             * 	返回值
+             * 		返回排序后的数组，原数组变了，变成排序后的数组      
+             * 
+             * concat
+             * 	    作用
+             * 		    连接数组，组成一个新数组
+             * 	    语法
+             * 		    数组.concat(varlue1,value2,value3...)
+             * 	    参数
+             * 		    需要与原数组进行合并的数据
+             * 		    参数可以是数组，也可以是非数组
+             * 	    返回值
+             * 		    合并后的新数组，原数组是不变的
+             * 	
+             * reverse
+             * 	作用
+             * 		颠倒数组
+             * 	语法
+             * 		数组.reverse()
+             * 	返回值
+             * 		返回颠倒后的数组，原数组变化了，变成颠倒后的数组了	
+             * 
+			 * join
+			 * 	作用
+			 * 		将数组中的所有元素都连接成一个字符串
+			 * 	语法
+			 * 		数组.join(separator)
+			 * 	参数
+			 * 		separator就是一个连接符，用来把数据连成一个字符串
+			 * 		没参数的话，默认为一个逗号
+			 * 		参数是一个空字符，那么数组中的每个数据将被直接连接
+			 * 	返回值
+			 * 		返回数组转成的字符串，原数组不变
+             * 
+             * slice 
+			 * 	作用
+			 * 		截取数组
+			 * 	语法
+			 * 		数组.slice(begin,end)
+			 * 	参数
+			 * 		begin		开始的位置
+			 * 		end			结束的位置(不包含最后一位)
+			 * 
+			 * 		一个参数都没有，直接返回原来的数组
+			 * 		参数只有一个数字，那从数字开始的位置一直到数组的最全截掉
+			 * 	返回值
+			 * 		返回截到的数组，原数组不会变
+             * 
+             * splice
+			 * 	作用
+			 * 		用新元素替换旧元素，以此修改数组的内容（替换数组）
+			 * 	语法
+			 * 		数组.splice(start,deleatCount,item)
+			 * 	参数
+			 * 		start			开始的位置
+			 * 		deleatCount		删除的个数
+			 * 		item				替换的内容
+			 * 
+			 * 		一个参数都不有的话，那直接返回一个空数组
+			 * 		如果参数为一个数字，代表截取数组，从传的那个数字开始，一直截到最后一位数据
+			 * 		如果参数为两个数字，代表截取数组，从第一个参数开始，截取的个数为第二个参数的值
+			 * 		如果参数为三个，代表替换数组，从第一个参数开始，找到第二个参数值的个数，把找到的内容换成第三个以及第三个以后的参数
+			 * 返回值
+			 * 		返回删除的数据
+			 * 		原数组变化了，变成删除后剩下的内容
+        */
+        var color = ['red', 'green', 'yellow', 'pink', 'blue']
+        var len = color.push('black');
+        console.log(color);
+        console.log(len);
+        //push
+        var color1 = ['red', 'green', 'yellow', 'pink', 'blue']
+        var len1 = color1.unshift('black');
+        console.log(color1);
+        console.log(len1);
+        //pop
+        var del = color.pop();
+        console.log(color);
+        console.log(del);
+        //shift
+        var del1 = color1.shift();
+        console.log(del1);
+        console.log(color1);
+        //forEach
+        color.forEach(function (currentValue, index, array) {
+            console.log(currentValue, index, array);
+        });
+        //小到大
+        var arr = [2, 4, 6, 1, 3, 7, 9]
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr);
+        //大到小
+        var arr1 = [2, 4, 6, 1, 3, 7, 9]
+        arr1.sort(function (a, b) {
+            return b - a;
+        });
+        console.log(arr1);
+        //随机排序
+        var arr2 = [2, 4, 6, 1, 3, 7, 9];
+        arr2.sort(function () {
+            return 0.5 - Math.random()
+        })
+        console.log(arr2);
+        //concat
+        var newArr = arr.concat('green', 'red')
+        console.log(newArr);
+        var newArr1 = arr.concat('green', 'red', [5, 8])
+        console.log(newArr1);
+        //reverse
+        newArr1.reverse();
+        console.log(newArr1);
+        //join
+        var a=['q','w','e','r']
+        var a1=a.join();
+        //原数组不变
+        console.log(a);     // ['q', 'w', 'e', 'r']
+        console.log(a1);    //q,w,e,r
+        var a2=a.join('');  
+        console.log();      //qwer
+        //slice
+        a.slice();
+        console.log(a);
+        var a2=a.slice(1)
+        console.log(a2);
+        var a3=a.slice(3)
+        console.log(a3);
+
+
+    </script>
+</body>
+
+</html>
