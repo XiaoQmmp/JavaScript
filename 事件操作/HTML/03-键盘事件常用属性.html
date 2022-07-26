@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //键盘事件里的常用属性
+            //event.keyCode         按下的是哪个键，返回这个键对应的Unicode
+            //event.ctrlKey         事件发生时ctrl是否被按下，是：true，否：false
+            //event.shift         事件发生时shift是否被按下，是：true，否：false
+            //event.alt         事件发生时alt是否被按下，是：true，否：false
+        document.onkeydown=function(ev){
+            console.log(ev.keyCode);
+            console.log(ev.ctrlKey);
+        }
+    </script>
+</body>
+</html>

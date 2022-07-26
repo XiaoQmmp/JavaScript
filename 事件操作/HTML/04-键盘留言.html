@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            let input=document.querySelector('input');
+            let ul=document.querySelector('ul');
+            input.onkeydown=function(ev){
+                if(ev.keyCode==13){
+                    var li=document.createElement('li');
+                    li.innerHTML=this.value;
+                    ul.appendChild(li);
+                    this.value=''
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text">
+    <ul></ul>
+</body>
+</html>

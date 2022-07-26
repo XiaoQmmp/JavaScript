@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+        }
+        #box p{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+        #box span{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+    <script>
+         /*
+        事件源
+            event.target
+    */ 
+   window.onload=function(){
+        var box=document.getElementById('box');
+        box.onclick=function(ev){
+            console.log(ev.target)
+        }
+        var list=document.getElementById('list')
+        var lis=document.querySelectorAll('li')
+
+        //事件委托
+       list.onclick=function(ev){
+        if(ev.target.tagName=='LI'){
+            console.log(ev.target.innerHTML);
+        }
+       }
+        list.innerHTML+='<li>yellow</li>'
+        
+   }
+    </script>
+</head>
+<body>
+   
+    <div id="box">
+        <p>
+            <span>
+                xiaoqiang
+            </span>
+        </p>
+    </div>
+    <ul id="list">
+        <li>bule</li>
+        <li>red</li>
+        <li>green</li>
+        <li>black</li>
+        <li>pink</li>
+    </ul>
+</body>
+</html>
