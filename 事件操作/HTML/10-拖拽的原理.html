@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        /*
+             * 拖拽的原理
+             * 	1、鼠标在元素身上按下
+             * 		这里需要算出鼠标点击的地方离元素边界的距离
+             * 		鼠标起始X轴的位置＝鼠标的clientX-元素的offsetLeft
+             * 		鼠标起始Y轴的位置＝鼠标的clientY-元素的offsetTop
+             * 
+             * 	2、鼠标移动
+             * 		这里需要算出来元素的真正left与top值
+             * 		元素的left＝鼠标的clientX-鼠标起始X轴的位置
+             * 		元素的top＝鼠标的clientY-鼠标起始Y轴的位置
+             * 
+             * 	3、鼠标抬起
+             * 		清除掉鼠标身上的事件
+             */
+        window.onload = function () {
+            var box = document.getElementById('box');
+
+            dray(box);
+
+            function dray(obj) {
+                obj.onmousedown = function (ev) {
+                    var disX = ev.clientX - obj.offsetLeft;
+                    var disY = ev.clientY - obj.offsetTop;
+                    //鼠标移动
+                    document.onmousemove = function (ev) {
+                        obj.style.left = ev.clientX - disX + 'px';
+                        obj.style.top = ev.clientY - disY + 'px';
+                    }
+                    //鼠标抬起
+                    box.onmouseup = function () {
+                        document.onmousemove = null;
+                    }
+                    return false;
+                }
+            }
+            //鼠标按下
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+</body>
+
+</html>

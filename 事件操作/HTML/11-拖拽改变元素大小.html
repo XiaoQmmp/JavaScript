@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            border: 3px solid green;
+            cursor: ew-resize;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById('box');
+            box.onmousedown = function (ev) {
+                var disX = ev.clientX;
+                var w = box.clientWidth;
+                //判断鼠标在边框身上;
+                if (getPos(box).right - ev.clientX <= 3) {
+                    //这个条件成立，鼠标可以拖动
+                    document.onmousemove = function (ev) {
+                        var newWidth = ev.clientX - disX + w;
+                        if (newWidth < 50) {
+                            newWidth = 50;
+                        }
+                        box.style.width = newWidth + 'px';
+                    };
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                    }
+                }
+                function getPos(obj) {
+                    return obj.getBoundingClientRect();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+</body>
+
+</html>
