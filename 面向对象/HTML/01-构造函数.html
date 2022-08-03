@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            构造函数
+            创建并初始化对象的函数，并且需要用new来调用函数,不用new调用的话就与普通函数没有区别
+            
+        */
+       function Person(name,age){
+            this.name=name;
+            this.age=age;
+            Person.prototype.say =function(){
+                console.log("我叫"+this.name);
+            }
+       }
+       var p1=new Person('老王',30);
+       p1.say();
+    </script>
+</body>
+</html>
