@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #div1{
+            background: red;
+        }
+        #div2{
+            background: green;
+            left: 100px;
+        }
+        #div3{
+            background: blue;
+            left: 200px;
+        }
+    </style>
+    <script>
+        /*
+            
+        */
+        window.onload=function(){
+            var div1=new Drag('div1');
+            var div2=new Drag('div2');
+            var div3=new Drag('div3');
+
+            div1.Init({
+                downFn:function(){
+                    this.obj.style.background='yellow';
+                },
+                moveFn:function(){
+                    this.obj.style.background='grey';
+                },
+                upFn:function(){
+                    this.obj.style.background='pink'
+                }
+            });
+            div2.Init({
+                downFn:function(){
+                    this.obj.style.background='yellowgreen'
+                }
+            })
+        };
+        function Drag(obj){
+            this.obj=document.getElementById(obj);
+            this.disX=0;
+            this.disY=0;
+            
+            this.settings={};   //存的要被用户修改的内容
+        };
+
+        //初始化函数;
+        Drag.prototype.Init=function(opt){
+            //把初始化要被用户修改的内容放在一个对象里，下面去调用这个对象
+            this.settings={
+                downFn:opt.downFn||function(){},
+                moveFn:opt.moveFn||function(){},
+                upFn:opt.upFn||function(){}
+            };  
+            var This=this;
+            this.obj.onmousedown=function(ev){
+                This.down(ev);
+
+            }
+        }
+
+        Drag.prototype.down=function(ev){
+            this.settings.downFn.call(this);
+
+            this.disX=ev.clientX-this.obj.offsetLeft;
+            this.disY=ev.clientY-this.obj.offsetTop;
+            
+            var This=this;
+            document.onmousemove=function(ev){
+                This.move(ev);
+            };
+            document.onmouseup=function(){
+                This.up();
+            }
+        }
+        Drag.prototype.move=function(ev){
+            this.settings.moveFn.call(this);
+            this.obj.style.left=ev.clientX-this.disX+'px';
+            this.obj.style.top=ev.clientY-this.disY+'px';
+        };
+        Drag.prototype.up=function(){
+            this.settings.upFn.call(this);
+            document.onmousemove=null;
+        }
+
+       
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #div1{
+            background: red;
+        }
+        #div2{
+            background: green;
+            left: 100px;
+        }
+        #div3{
+            background: blue;
+            left: 200px;
+        }
+    </style>
+    <script>
+        /*
+            
+        */
+        window.onload=function(){
+            var div1=new Drag('div1');
+            var div2=new Drag('div2');
+            var div3=new Drag('div3');
+
+            div1.Init(function(){},function(){});
+
+            div2.Init(function(){
+                this.obj.style.background='yellow';
+            },function(){});
+
+            div3.Init(function(){},function(){
+                this.obj.style.background='grey'
+            });
+        };
+        function Drag(obj){
+            this.obj=document.getElementById(obj);
+            this.disX=0;
+            this.disY=0;
+        };
+
+        //初始化函数;
+        Drag.prototype.Init=function(downFn,moveFn){
+            var This=this;
+            this.obj.onmousedown=function(ev){
+                downFn.call(This);      //div2在鼠标按下时候变色
+                This.down(ev,moveFn);
+            }
+        }
+
+        Drag.prototype.down=function(ev,moveFn){
+            this.disX=ev.clientX-this.obj.offsetLeft;
+            this.disY=ev.clientY-this.obj.offsetTop;
+            
+            var This=this;
+            document.onmousemove=function(ev){
+                moveFn.call(This);      //div3在鼠标移动时变色
+                This.move(ev);
+            };
+            document.onmouseup=function(){
+                This.up();
+            }
+            console.log('鼠标点击');
+        }
+        Drag.prototype.move=function(ev){
+            this.obj.style.left=ev.clientX-this.disX+'px';
+            this.obj.style.top=ev.clientY-this.disY+'px';
+            console.log('鼠标按住移动');
+        };
+        Drag.prototype.up=function(){
+            document.onmousemove=null;
+            console.log('鼠标松开');
+        }
+
+       
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>
